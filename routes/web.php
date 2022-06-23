@@ -64,6 +64,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/service/{id}', 'serviceDetails')->name('serviceDetails');
 
     Route::get('/job', 'job')->name('job');
+    Route::get('/walk-in-interview-job', 'walkInInterviewJob')->name('walkInInterviewJob');
     Route::get('/job/{id}', 'jobDetails')->name('jobDetails');
     Route::post('/job/application/store/{id}', 'storeApplication')->name('storeApplication');
 
@@ -294,6 +295,8 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
         Route::put('/update/{id}', 'update')->name('update');
         Route::post('/active/{id}', 'active')->name('active');
         Route::post('/inactive/{id}', 'inactive')->name('inactive');
+        Route::post('/active-walk-in-interview/{id}', 'activeWalkInInterview')->name('activeWalkInInterview');
+        Route::post('/inactive-walk-in-interview/{id}', 'inactiveWalkInInterview')->name('inactiveWalkInInterview');
         Route::delete('/delete/{id}', 'delete')->name('delete');
     });
 

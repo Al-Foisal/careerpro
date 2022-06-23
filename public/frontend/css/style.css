@@ -1566,7 +1566,7 @@ Header CSS
 
 .navbar-style-three .raque-nav .navbar .navbar-nav {
   margin-left: auto;
-  margin-right: 0;
+  margin-right: auto;
 }
 
 .navbar-style-three .raque-nav .navbar .others-option {
@@ -1575,7 +1575,7 @@ Header CSS
 
 .navbar-style-three.header-sticky .raque-nav .navbar .navbar-nav {
   margin-left: auto;
-  margin-right: 0;
+  margin-right: auto;
 }
 
 .navbar-style-three.header-sticky .raque-nav .navbar .others-option {

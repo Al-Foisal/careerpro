@@ -159,9 +159,24 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('job') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     Job Portal
+                                    <i class="bx bx-chevron-down"></i>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ route('job') }}"
+                                            class="nav-link">
+                                            Job Circular
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('walkInInterviewJob') }}"
+                                            class="nav-link">
+                                            Walk In Interview
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -307,9 +322,24 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('job') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     Job Portal
+                                    <i class="bx bx-chevron-down"></i>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ route('job') }}"
+                                            class="nav-link">
+                                            Job Circular
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('walkInInterviewJob') }}"
+                                            class="nav-link">
+                                            Walk In Interview
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">

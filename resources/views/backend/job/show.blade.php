@@ -27,9 +27,14 @@
                     <div class="col-md-12">
                         <h1>Job Details</h1>
                         <hr>
-                        Job Name: {{ $job->name }} <br>
-                        Job Dead Line: {{ $job->dead_line }} <br><br>
-                        Job Details: {!! $job->details !!}
+                        @if ($job->admin_id == null)
+                            <b>Job Provider Name:</b> {{ getUserById($job->user_id)->name }} <br>
+                        @else
+                            <b>Job Provider Name:</b> {{ getAdminById($job->admin_id)->name }} <br>
+                        @endif
+                        <b>Job Name:</b> {{ $job->name }} <br>
+                        <b>Job Dead Line:</b> {{ $job->dead_line }} <br><br>
+                        <b>Job Details:</b> {!! $job->details !!}
                     </div>
                 </div>
                 <hr>
@@ -41,11 +46,14 @@
                                 <thead>
                                     <tr>
                                         <th>##</th>
-                                        <th>Provider</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>NID</th>
+                                        <th>Experience</th>
                                         <th>CV</th>
+                                        <th>Image</th>
+                                        <th>Certificate</th>
                                         <th>Date</th>
                                     </tr>
                                 </thead>
@@ -53,11 +61,17 @@
                                     @foreach ($job->jobApplications as $key => $app)
                                         <tr>
                                             <td>{{ ++$key }}</td>
-                                            <td>{{ getUserById($app->user_id ?? $app->admin_id) }}</td>
                                             <td>{{ $app->name }}</td>
                                             <td>{{ $app->email }}</td>
                                             <td>{{ $app->phone }}</td>
+                                            <td>{{ $app->nid }}</td>
+                                            <td>{{ $app->experience }}</td>
                                             <td><a href="{{ asset($app->cv) }}" download>Download CV</a></td>
+                                            <td><a href="{{ asset($app->image) }}" download>
+                                                    <img src="{{ asset($app->image) }}" style="height:50px;width:50px;">
+                                                </a></td>
+                                            <td><a href="{{ asset($app->certificate) }}" download>Download
+                                                    Certificate</a></td>
                                             <td>{{ $app->created_at }}</td>
                                         </tr>
                                     @endforeach

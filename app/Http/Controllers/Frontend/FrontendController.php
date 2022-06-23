@@ -119,24 +119,45 @@ class FrontendController extends Controller {
         $jobs = DB::table('jobs')
             ->where('dead_line', '>', today())
             ->where('status', 1)
+            ->where('walk_in_interview', 0)
             ->paginate(10);
         $latest_courses = Course::where('status', 1)->where('is_approved', 1)->orderBy('id', 'desc')->limit(7)->get();
 
         return view('frontend.job', compact('jobs', 'latest_courses'));
     }
 
+    public function walkInInterviewJob() {
+        $jobs = DB::table('jobs')
+            ->where('dead_line', '>=', today())
+            ->where('status', 1)
+            ->where('walk_in_interview', 1)
+            ->paginate(10);
+        $latest_courses = Course::where('status', 1)->where('is_approved', 1)->orderBy('id', 'desc')->limit(7)->get();
+
+        return view('frontend.walk-in-interview-job', compact('jobs', 'latest_courses'));
+    }
+
     public function jobDetails($id) {
-        $job = Job::findOrFail($id);
+        $job = Job::where('id', $id)->where('dead_line', '>', today())
+            ->where('status', 1)->first();
+
+        if (!$job) {
+            return back();
+        }
 
         return view('frontend.job-details', compact('job'));
     }
 
     public function storeApplication(Request $request, $id) {
         $validator = Validator::make($request->all(), [
-            'name'  => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'cv'    => 'required|mimes:pdf',
+            'name'        => 'required',
+            'email'       => 'required',
+            'phone'       => 'required|numeric',
+            'experience'  => 'required',
+            'nid'         => 'required|numeric',
+            'cv'          => 'required|mimes:pdf',
+            'image'       => 'required|mimes:jpg,jpeg,png',
+            'certificate' => 'required|mimes:pdf',
         ]);
 
         if ($validator->fails()) {
@@ -152,7 +173,7 @@ class FrontendController extends Controller {
             if ($image_file) {
 
                 $img_gen   = hexdec(uniqid());
-                $image_url = 'images/cv/';
+                $image_url = 'images/job/cv/';
                 $image_ext = strtolower($image_file->getClientOriginalExtension());
 
                 $img_name    = $img_gen . '.' . $image_ext;
@@ -163,12 +184,52 @@ class FrontendController extends Controller {
 
         }
 
+        if ($request->hasFile('image')) {
+
+            $image_file = $request->file('image');
+
+            if ($image_file) {
+
+                $img_gen   = hexdec(uniqid());
+                $image_url = 'images/job/image/';
+                $image_ext = strtolower($image_file->getClientOriginalExtension());
+
+                $img_name = $img_gen . '.' . $image_ext;
+                $image    = $image_url . $img_gen . '.' . $image_ext;
+
+                $image_file->move($image_url, $img_name);
+            }
+
+        }
+
+        if ($request->hasFile('certificate')) {
+
+            $image_file = $request->file('certificate');
+
+            if ($image_file) {
+
+                $img_gen   = hexdec(uniqid());
+                $image_url = 'images/job/certificate/';
+                $image_ext = strtolower($image_file->getClientOriginalExtension());
+
+                $img_name    = $img_gen . '.' . $image_ext;
+                $certificate = $image_url . $img_gen . '.' . $image_ext;
+
+                $image_file->move($image_url, $img_name);
+            }
+
+        }
+
         JobApplication::create([
-            'name'   => $request->name,
-            'email'  => $request->email,
-            'phone'  => $request->phone,
-            'cv'     => $final_iamge,
-            'job_id' => $job->id,
+            'name'        => $request->name,
+            'email'       => $request->email,
+            'phone'       => $request->phone,
+            'experience'  => $request->experience,
+            'nid'         => $request->nid,
+            'cv'          => $final_iamge,
+            'image'       => $image,
+            'certificate' => $certificate,
+            'job_id'      => $job->id,
         ]);
 
         return redirect()->back()->withToastSuccess('Application Submitted!!');

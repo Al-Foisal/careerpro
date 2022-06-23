@@ -34,8 +34,9 @@
                                 <thead>
                                     <tr>
                                         <th>Action</th>
-                                        <th>Image</th>
                                         <th>status</th>
+                                        <th>Walk In Interview</th>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Dead Line</th>
                                         <th>Post Time</th>
@@ -45,39 +46,62 @@
                                     @foreach ($jobs as $job)
                                         <tr>
                                             <td class="d-flex justify-content-between">
-                                                <a href="{{ route('admin.job.edit', $job) }}" class="btn btn-info btn-xs">
-                                                    <i class="fas fa-edit"></i> </a>
-                                                    <a href="{{ route('admin.job.show', $job) }}" class="btn btn-info btn-xs">
-                                                        <i class="fas fa-eye"></i> </a>
-                                                @if ($job->status === 1)
-                                                    <form action="{{ route('admin.job.inactive', $job) }}" method="post">
-                                                        @csrf
-                                                        <button type="submit"
-                                                            onclick="return(confirm('Are you sure want to INACTIVE this item?'))"
-                                                            class="btn btn-danger btn-xs"> <i
-                                                                class="far fa-thumbs-down"></i>
-                                                        </button>
-                                                    </form>
-                                                @else
-                                                    <form action="{{ route('admin.job.active', $job) }}" method="post">
-                                                        @csrf
-                                                        <button type="submit"
-                                                            onclick="return(confirm('Are you sure want to Active this item?'))"
-                                                            class="btn btn-info btn-xs"> <i class="far fa-thumbs-up"></i>
-                                                        </button>
-                                                    </form>
-                                                @endif
-                                                <form action="{{ route('admin.job.delete', $job) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit"
-                                                        onclick="return(confirm('Are you sure want to delete this item?'))"
-                                                        class="btn btn-danger btn-xs"> <i class="fas fa-trash-alt"></i>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-danger dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false">
+                                                        Action
                                                     </button>
-                                                </form>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.job.show', $job) }}">View Details</a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.job.edit', $job) }}">Edit</a>
+                                                        @if ($job->status == 0)
+                                                            <form action="{{ route('admin.job.active', $job) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <button class="dropdown-item" type="submit">Active
+                                                                    Job</button>
+                                                            </form>
+                                                        @else
+                                                            <form action="{{ route('admin.job.inactive', $job) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <button class="dropdown-item" type="submit">Inactive
+                                                                    Job</button>
+                                                            </form>
+                                                        @endif
+
+                                                        @if ($job->walk_in_interview == 0)
+                                                            <form action="{{ route('admin.job.activeWalkInInterview', $job) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <button class="dropdown-item" type="submit">Active
+                                                                    for walk-in-interview</button>
+                                                            </form>
+                                                        @else
+                                                            <form action="{{ route('admin.job.inactiveWalkInInterview', $job) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <button class="dropdown-item" type="submit">Inactive
+                                                                    for walk-in-interview</button>
+                                                            </form>
+                                                        @endif
+                                                        
+                                                        <form action="{{ route('admin.job.delete', $job) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="dropdown-item" type="submit"
+                                                                onclick="return(confirm('Are you sure want to delete this item?'))">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </td>
-                                            <td><img src="{{ asset($job->image) }}" style="height:100px;width:150px"></td>
                                             <td>{{ $job->status === 1 ? 'Y' : 'N' }}</td>
+                                            <td>{{ $job->walk_in_interview === 1 ? 'Y' : 'N' }}</td>
+                                            <td><img src="{{ asset($job->image) }}" style="height:100px;width:150px">
+                                            </td>
                                             <td>{{ $job->name }}</td>
                                             <td>{{ $job->dead_line }}</td>
                                             <td>{{ $job->updated_at }}</td>
