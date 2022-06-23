@@ -103,6 +103,16 @@
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav">
                             <li class="nav-item">
+                                <a href="{{ route('home') }}" class="nav-link">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('about') }}" class="nav-link">
+                                    About Us
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     Courses
                                     <i class="bx bx-chevron-down"></i>
@@ -131,7 +141,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            @foreach ($frontCategories as $fc)
+                            {{-- @foreach ($frontCategories as $fc)
                                 <li class="nav-item">
                                     <a href="{{ route('categoryCourses', $fc->slug) }}"
                                         class="nav-link">{{ $fc->name }}</a>
@@ -142,10 +152,15 @@
                                     <a href="{{ route('categoryCourses', [$fs->category->slug, $fs->slug]) }}"
                                         class="nav-link">{{ $fs->name }}</a>
                                 </li>
-                            @endforeach
+                            @endforeach --}}
+                            <li class="nav-item">
+                                <a href="{{ route('service') }}" class="nav-link">
+                                    Our Services
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('job') }}" class="nav-link">
-                                    Job
+                                    Job Portal
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -236,6 +251,16 @@
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav">
                             <li class="nav-item">
+                                <a href="{{ route('home') }}" class="nav-link">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('about') }}" class="nav-link">
+                                    About US
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     Courses
                                     <i class="bx bx-chevron-down"></i>
@@ -264,7 +289,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            @foreach ($frontCategories as $fc)
+                            {{-- @foreach ($frontCategories as $fc)
                                 <li class="nav-item">
                                     <a href="{{ route('categoryCourses', $fc->slug) }}"
                                         class="nav-link">{{ $fc->name }}</a>
@@ -275,10 +300,15 @@
                                     <a href="{{ route('categoryCourses', [$fs->category->slug, $fs->slug]) }}"
                                         class="nav-link">{{ $fs->name }}</a>
                                 </li>
-                            @endforeach
+                            @endforeach --}}
+                            <li class="nav-item">
+                                <a href="{{ route('service') }}" class="nav-link">
+                                    Our Services
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('job') }}" class="nav-link">
-                                    Job
+                                    Job Portal
                                 </a>
                             </li>
                             <li class="nav-item">

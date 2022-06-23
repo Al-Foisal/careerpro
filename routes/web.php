@@ -1,19 +1,24 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\Auth\AdminForgotPasswordController;
 use App\Http\Controllers\Backend\Auth\AdminLoginController;
 use App\Http\Controllers\Backend\Auth\AdminRegistrationController;
 use App\Http\Controllers\Backend\Auth\AdminResetPasswordController;
 use App\Http\Controllers\Backend\Auth\BackendManagementController;
 use App\Http\Controllers\Backend\BackendInstructorController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\FAQController;
 use App\Http\Controllers\Backend\GeneralController;
+use App\Http\Controllers\Backend\HelpController;
 use App\Http\Controllers\Backend\JobController;
 use App\Http\Controllers\Backend\MainMenu\CategoryController;
 use App\Http\Controllers\Backend\MainMenu\SubcategoryController;
 use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
@@ -32,9 +37,7 @@ use App\Http\Controllers\Instructor\InstructorResetPasswordController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\BlogController;
-use App\Http\Controllers\Backend\FAQController;
-use App\Http\Controllers\Backend\HelpController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,20 +48,25 @@ use App\Http\Controllers\Backend\HelpController;
 | contains the "web" middleware group. Now create something great!
 |
  */
- Route::get('/cc', function() {
+Route::get('/cc', function () {
     $exitCode = Artisan::call('config:clear');
     $exitCode = Artisan::call('route:clear');
     $exitCode = Artisan::call('view:clear');
     $exitCode = Artisan::call('config:cache');
+
     return '<h1>All Config cleared</h1>';
 });
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'index')->name('home');
 
+    Route::get('/about-us', 'about')->name('about');
+    Route::get('/our-services', 'service')->name('service');
+    Route::get('/service/{id}', 'serviceDetails')->name('serviceDetails');
+
     Route::get('/job', 'job')->name('job');
     Route::get('/job/{id}', 'jobDetails')->name('jobDetails');
     Route::post('/job/application/store/{id}', 'storeApplication')->name('storeApplication');
-    
+
     Route::get('/courses/{category}/{sub?}', 'categoryCourses')->name('categoryCourses');
     Route::get('/course-details/{slug}', 'courseDetails')->name('courseDetails');
 
@@ -67,10 +75,10 @@ Route::controller(FrontendController::class)->group(function () {
 
     Route::get('/instructor', 'instructor')->name('instructor');
     Route::get('/instructor/details/{id}', 'instructorDetails')->name('instructorDetails');
-    
+
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/blog/{slug}', 'blogDetails')->name('blogDetails');
-    
+
     Route::get('/help', 'help')->name('help');
     Route::get('/faq', 'faq')->name('faq');
     Route::get('/offer', 'offer')->name('offer');
@@ -274,6 +282,8 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
         Route::delete('/delete/{slug}', 'delete')->name('delete');
     });
     Route::resource('/coupons', CouponController::class);
+    Route::resource('/abouts', AboutController::class);
+    Route::resource('/services', ServiceController::class);
 
     Route::controller(JobController::class)->prefix('/job')->as('job.')->group(function () {
         Route::get('/', 'index')->name('index');
@@ -286,12 +296,12 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
         Route::post('/inactive/{id}', 'inactive')->name('inactive');
         Route::delete('/delete/{id}', 'delete')->name('delete');
     });
-    
-    Route::resource('/blogs',BlogController::class);
-    Route::resource('/faqs',FAQController::class);
-    Route::resource('/helps',HelpController::class);
-    Route::get('/contact',[DashboardController::class,'contact'])->name('contact');
-    Route::delete('/contact/{id}',[DashboardController::class,'destroy'])->name('contact.destroy');
+
+    Route::resource('/blogs', BlogController::class);
+    Route::resource('/faqs', FAQController::class);
+    Route::resource('/helps', HelpController::class);
+    Route::get('/contact', [DashboardController::class, 'contact'])->name('contact');
+    Route::delete('/contact/{id}', [DashboardController::class, 'destroy'])->name('contact.destroy');
 
     // Route::middleware('company')->group(function () {
     //company info

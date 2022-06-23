@@ -161,57 +161,28 @@
                     </ul>
                 </li> 
 
-
-
-
-                {{-- order
-                @if (auth()->guard('admin')->user()->order_history == 1)
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-warning"></i>
-                            <p class="text">
-                                Order
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview nav-header">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.cancelOrder') }}" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p>Canceled Order</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.pendingOrder') }}" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p>Pending Order</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.confirmOrder') }}" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p>Confirm Order</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.shippedOrder') }}" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p>Shipped Order</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif --}}
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p class="text">
-                            Others
+                            Website
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview nav-header">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.abouts.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>About</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.services.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>Service</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blogs.index') }}" class="nav-link">
                                 <i class="nav-icon far fa-circle text-danger"></i>

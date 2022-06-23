@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Course;
-use App\Models\Instructor;
+use App\Models\About;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Contact;
-use App\Models\Help;
+use App\Models\Course;
 use App\Models\FAQ;
+use App\Models\Help;
+use App\Models\Instructor;
 use App\Models\Job;
-use App\Models\Page;
-use App\Models\Slider;
 use App\Models\JobApplication;
+use App\Models\Page;
+use App\Models\Service;
+use App\Models\Slider;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +31,24 @@ class FrontendController extends Controller {
             ->get();
 
         return view('frontend.index', $data);
+    }
+
+    public function about() {
+        $abouts = About::all();
+
+        return view('frontend.about', compact('abouts'));
+    }
+
+    public function service() {
+        $services = Service::all();
+
+        return view('frontend.service', compact('services'));
+    }
+
+    public function serviceDetails($id) {
+        $service = Service::find($id);
+
+        return view('frontend.service-details', compact('service'));
     }
 
     public function categoryCourses($category, $sub = null) {
@@ -116,7 +136,7 @@ class FrontendController extends Controller {
             'name'  => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'cv' => 'required|mimes:pdf',
+            'cv'    => 'required|mimes:pdf',
         ]);
 
         if ($validator->fails()) {
@@ -153,70 +173,67 @@ class FrontendController extends Controller {
 
         return redirect()->back()->withToastSuccess('Application Submitted!!');
 
-
-
     }
 
-    public function instructor()
-    {
-        $instructors = Instructor::where('is_approved',1)->get();
+    public function instructor() {
+        $instructors = Instructor::where('is_approved', 1)->get();
 
-        return view('frontend.instructor',compact('instructors'));
+        return view('frontend.instructor', compact('instructors'));
     }
 
-    public function instructorDetails($id)
-    {
+    public function instructorDetails($id) {
         $instructor = Instructor::findOrFail($id);
 
-        return view('frontend.instructor-details',compact('instructor'));
+        return view('frontend.instructor-details', compact('instructor'));
     }
-    
-    public function blog(){
+
+    public function blog() {
         $blogs = Blog::with('instructor')->orderBy('id', 'DESC')->paginate(20);
-        
-        return view('frontend.blog',compact('blogs'));
-    }
-    
-    public function blogDetails($slug){
-        $blog=Blog::where('slug',$slug)->with('instructor')->first();
-        
-        return view('frontend.blog-details',compact('blog'));
+
+        return view('frontend.blog', compact('blogs'));
     }
 
-    public function faq(){
+    public function blogDetails($slug) {
+        $blog = Blog::where('slug', $slug)->with('instructor')->first();
+
+        return view('frontend.blog-details', compact('blog'));
+    }
+
+    public function faq() {
         $faqs = FAQ::all();
-        return view('frontend.faq',compact('faqs'));
+
+        return view('frontend.faq', compact('faqs'));
     }
 
-    public function help(){
+    public function help() {
         $helps = Help::all();
-        return view('frontend.help',compact('helps'));
+
+        return view('frontend.help', compact('helps'));
     }
 
-    public function offer(){
+    public function offer() {
         $courses = Course::where([
-            'status'=>1,
-            'is_approved'=>1,
-            ])->whereNotNull('discount_price')->paginate(20);
-            
-        return view('frontend.offer',compact('courses'));
+            'status'      => 1,
+            'is_approved' => 1,
+        ])->whereNotNull('discount_price')->paginate(20);
+
+        return view('frontend.offer', compact('courses'));
     }
-    
-    public function contact(){
+
+    public function contact() {
         return view('frontend.contact');
     }
-    
-    public function storeContact(Request $request){
+
+    public function storeContact(Request $request) {
         Contact::create($request->all());
+
         return redirect()->back()->withToastSuccess('Contact store successfully!!');
     }
-    
+
     public function page($slug) {
         $page = Page::where('slug', $slug)->first();
 
         return view('frontend.page', compact('page'));
     }
-
-
 
 }
