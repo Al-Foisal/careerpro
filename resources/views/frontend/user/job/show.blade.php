@@ -33,7 +33,7 @@
             <div class="myAccount-navigation" style="text-align: center;">
                 @include('frontend.layouts.partials._user_dashboard_menu')
             </div>
-            <div class="myAccount-content" id="print">
+            <div class="myAccount-content">
                 <div class="myAccount-profile">
                     <div class="row align-items-center">
                         <div class="col-lg-4 col-md-5">
@@ -52,14 +52,18 @@
                 </div>
                 <h3>Job Applications</h3>
                 <div class="recent-orders-table table-responsive">
-                    <table class="table">
+                    <table class="table" id="print">
                         <thead>
                             <tr>
                                 <th>##</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>NID</th>
+                                <th>Experience</th>
                                 <th>CV</th>
+                                <th>Image</th>
+                                <th>Certificate</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
@@ -70,12 +74,19 @@
                                     <td>{{ $app->name }}</td>
                                     <td>{{ $app->email }}</td>
                                     <td>{{ $app->phone }}</td>
+                                    <td>{{ $app->nid }}</td>
+                                    <td>{{ $app->experience }}</td>
                                     <td><a href="{{ asset($app->cv) }}" download>Download CV</a></td>
+                                    <td><a href="{{ asset($app->image) }}" download>
+                                            <img src="{{ asset($app->image) }}" style="height:50px;width:50px;">
+                                        </a></td>
+                                    <td><a href="{{ asset($app->certificate) }}" download>Download Certificate</a></td>
                                     <td>{{ $job->created_at->format('l m y') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+
                 </div>
             </div>
             <button id="print" onclick="printContent('print');" class="btn btn-success btn-sm">Print Job</button>

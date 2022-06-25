@@ -29,8 +29,9 @@
                         <thead>
                             <tr>
                                 <th>##</th>
-                                <th>Image</th>
                                 <th>Status</th>
+                                <th>Walk <br>In <br>Interview</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Dead Line</th>
                                 <th>Created_at</th>
@@ -38,17 +39,69 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                             @foreach ($jobs as $key => $job)
                                 <tr>
 
                                     <td>{{ ++$key }}</td>
-                                    <td><img src="{{ asset($job->image) }}" style="height:100px;width:100px"></td>
                                     <td>{{ $job->status === 1 ? 'Y' : 'N' }}</td>
+                                    <td>{{ $job->walk_in_interview === 1 ? 'Y' : 'N' }}</td>
+                                    <td><img src="{{ asset($job->image) }}" style="height:100px;width:100px"></td>
                                     <td>{{ $job->name }}</td>
                                     <td>{{ $job->dead_line->format('l m Y') }}</td>
                                     <td>{{ $job->updated_at }}</td>
                                     <td>
-                                        <a href="{{ route('user.job.show', $job->id) }}" class="btn btn-info  btn-sm">View</a>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger dropdown-toggle"
+                                                data-toggle="dropdown" aria-expanded="false">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item"
+                                                    href="{{ route('user.job.show', $job) }}">View Details</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('user.job.edit', $job) }}">Edit</a>
+                                                @if ($job->status == 0)
+                                                    <form action="{{ route('user.job.active', $job) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <button class="dropdown-item" type="submit">Active
+                                                            Job</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('user.job.inactive', $job) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <button class="dropdown-item" type="submit">Inactive
+                                                            Job</button>
+                                                    </form>
+                                                @endif
+
+                                                @if ($job->walk_in_interview == 0)
+                                                    <form action="{{ route('user.job.activeWalkInInterview', $job) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <button class="dropdown-item" type="submit">Active
+                                                            for walk-in-interview</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('user.job.inactiveWalkInInterview', $job) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <button class="dropdown-item" type="submit">Inactive
+                                                            for walk-in-interview</button>
+                                                    </form>
+                                                @endif
+                                                
+                                                <form action="{{ route('user.job.delete', $job) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="dropdown-item" type="submit"
+                                                        onclick="return(confirm('Are you sure want to delete this item?'))">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

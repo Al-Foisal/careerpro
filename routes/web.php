@@ -110,6 +110,8 @@ Route::middleware('auth')->prefix('/user')->as('user.')->group(function () {
         Route::put('/update/{id}', 'update')->name('update');
         Route::post('/active/{id}', 'active')->name('active');
         Route::post('/inactive/{id}', 'inactive')->name('inactive');
+        Route::post('/active-walk-in-interview/{id}', 'activeWalkInInterview')->name('activeWalkInInterview');
+        Route::post('/inactive-walk-in-interview/{id}', 'inactiveWalkInInterview')->name('inactiveWalkInInterview');
         Route::delete('/delete/{id}', 'delete')->name('delete');
     });
     Route::controller(UserCourseController::class)->prefix('/courses')->as('courses.')->group(function () {

@@ -158,6 +158,24 @@ class UserJobController extends Controller {
         return redirect()->back()->withToastSuccess('Job inactivated successfully!!');
     }
 
+    public function activeWalkInInterview(Request $request, $id) {
+        $job = Job::findOrFail($id);
+
+        $job->walk_in_interview = 1;
+        $job->save();
+
+        return redirect()->route('user.job.index')->withToastSuccess('Job activated for walk-in-interview!!');
+    }
+
+    public function inactiveWalkInInterview(Request $request, $id) {
+        $job = Job::findOrFail($id);
+
+        $job->walk_in_interview = 0;
+        $job->save();
+
+        return redirect()->route('user.job.index')->withToastSuccess('Job inactivated for walk-in-interview!!');
+    }
+
     public function delete(Request $request, $id) {
         $job = Job::find($id);
 

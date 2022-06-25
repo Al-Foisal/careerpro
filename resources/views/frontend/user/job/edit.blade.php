@@ -41,7 +41,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <input type="date" name="dead_line" id="dead_line" placeholder="Your job dead line"
-                                                    class="form-control" value="{{ $job->dead_line }}">
+                                                    class="form-control" value="{{ $job->dead_line->format("m/d/Y") }}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
