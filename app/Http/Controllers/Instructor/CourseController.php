@@ -35,10 +35,29 @@ class CourseController extends Controller {
             'provider_signature' => 'required|image|mimes:jpeg,png,jpg,gif',
             'thumbnil_image'     => 'required|image|mimes:jpeg,png,jpg,gif,webp',
             'provider_logo'      => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
+            'sample_video_link'  => 'nullable|mimes:mp4,mov,wmv|max:30000',
         ]);
 
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all())->withInput();
+        }
+
+        if ($request->hasFile('sample_video_link')) {
+
+            $image_file = $request->file('sample_video_link');
+
+            if ($image_file) {
+
+                $img_gen   = hexdec(uniqid());
+                $image_url = 'images/video/';
+                $image_ext = strtolower($image_file->getClientOriginalExtension());
+
+                $img_name          = $img_gen . '.' . $image_ext;
+                $sample_video_link = $image_url . $img_gen . '.' . $image_ext;
+
+                $image_file->move($image_url, $img_name);
+            }
+
         }
 
         if ($request->hasFile('thumbnil_image')) {
@@ -108,13 +127,13 @@ class CourseController extends Controller {
             'learning_outcomes'  => $request->learning_outcomes,
             'duration'           => $request->duration,
             'source_link'        => $request->source_link,
-            'sample_video_link'  => $request->sample_video_link,
+            'sample_video_link'  => $sample_video_link ?? null,
             'thumbnil_image'     => $thumbnil_image,
             'price'              => $request->price,
             'lesson'             => $request->lesson,
             'discount_price'     => $request->discount_price,
             'language'           => $request->language,
-            'provider_logo'      => $provider_logo,
+            'provider_logo'      => $provider_logo ?? null,
             'provider_name'      => $request->provider_name,
             'provider_signature' => $provider_signature,
             'provider_signature' => $provider_signature,
@@ -146,10 +165,39 @@ class CourseController extends Controller {
             'provider_signature' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'thumbnil_image'     => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
             'provider_logo'      => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
+            'sample_video_link'  => 'nullable|mimes:mp4,mov,wmv|max:30000',
         ]);
 
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all())->withInput();
+        }
+
+        if ($request->hasFile('sample_video_link')) {
+
+            $image_file = $request->file('sample_video_link');
+
+            if ($image_file) {
+
+                if ($course->sample_video_link) {
+                    $sample_video_link_image_path = public_path($course->sample_video_link);
+
+                    if (File::exists($sample_video_link_image_path)) {
+                        File::delete($sample_video_link_image_path);
+                    }
+
+                }
+
+                $img_gen   = hexdec(uniqid());
+                $image_url = 'images/video/';
+                $image_ext = strtolower($image_file->getClientOriginalExtension());
+
+                $img_name          = $img_gen . '.' . $image_ext;
+                $sample_video_link = $image_url . $img_gen . '.' . $image_ext;
+
+                $image_file->move($image_url, $img_name);
+                $course->update(['sample_video_link' => $sample_video_link]);
+            }
+
         }
 
         if ($request->hasFile('thumbnil_image')) {
@@ -249,7 +297,6 @@ class CourseController extends Controller {
             'learning_outcomes' => $request->learning_outcomes,
             'duration'          => $request->duration,
             'source_link'       => $request->source_link,
-            'sample_video_link' => $request->sample_video_link,
             'price'             => $request->price,
             'lesson'            => $request->lesson,
             'discount_price'    => $request->discount_price,
@@ -281,6 +328,15 @@ class CourseController extends Controller {
 
     public function delete(Request $request, $id) {
         $course = Course::find($id);
+
+        if ($course->sample_video_link) {
+            $sample_video_link_image_path = public_path($course->sample_video_link);
+
+            if (File::exists($sample_video_link_image_path)) {
+                File::delete($sample_video_link_image_path);
+            }
+
+        }
 
         if ($course->thumbnil_image) {
             $thumbnil_image_image_path = public_path($course->thumbnil_image);

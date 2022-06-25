@@ -53,7 +53,7 @@
                             @csrf
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Main Category<span class="text-danger">*</span></label>
                                             <select class="form-control  select2bs4" style="width: 100%;" name="category_id"
@@ -65,7 +65,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Subcategory</label>
                                             <select class="form-control  select2bs4" data-placeholder="Select subcategory"
@@ -74,7 +74,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Select Instructor<span class="text-danger">*</span></label>
                                             <select class="form-control  select2bs4" style="width: 100%;"
@@ -87,18 +87,17 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Language<span class="text-danger">*</span></label>
-                                        <select class="form-control  select2bs4" style="width: 100%;" name="language"
-                                            required>
-                                            <option value="" selected>--select language--</option>
-                                            <option value="Bangla">Bangla</option>
-                                            <option value="English">English</option>
-
-                                        </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Language<span class="text-danger">*</span></label>
+                                            <select class="form-control  select2bs4" style="width: 100%;" name="language"
+                                                required>
+                                                <option value="" selected>--select language--</option>
+                                                <option value="Bangla">Bangla</option>
+                                                <option value="English">English</option>
+    
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -179,19 +178,21 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="sample_video_link">Course sample video link</label>
-                                    <textarea rows="2" type="text" name="sample_video_link" class="form-control" id="sample_video_link"
-                                        placeholder="Course sample video link">{{ old('sample_video_link') }}</textarea>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="provider_name">Provider name<span class="text-danger">*</span></label>
                                     <input type="text" name="provider_name" class="form-control" id="provider_name"
                                         placeholder="Provider name" value="{{ old('provider_name') }}">
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="sample_video_link">Course sample video</label>
+                                            <input type="file" name="sample_video_link" class="form-control"
+                                                id="sample_video_link" placeholder="Course sample video"
+                                                value="{{ old('sample_video_link') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="thumbnil_image">Course thumbnil image<span
                                                     class="text-danger">*</span></label>
@@ -200,7 +201,7 @@
                                                 value="{{ old('thumbnil_image') }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="provider_logo">Provider company logo/logo</label>
                                             <input type="file" name="provider_logo" class="form-control"
@@ -208,7 +209,7 @@
                                                 value="{{ old('provider_logo') }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="provider_signature">Provider signature<span
                                                     class="text-danger">*</span></label>

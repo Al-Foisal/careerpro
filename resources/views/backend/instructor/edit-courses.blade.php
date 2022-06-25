@@ -13,7 +13,6 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
-
     </style>
 @endsection
 
@@ -49,7 +48,7 @@
                             @method('put')
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Main Category<span class="text-danger">*</span></label>
                                             <select class="form-control  select2bs4" style="width: 100%;" name="category_id"
@@ -63,7 +62,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Subcategory</label>
                                             <select class="form-control  select2bs4" data-placeholder="Select subcategory"
@@ -75,33 +74,36 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Select Instructor<span class="text-danger">*</span></label>
                                             <select class="form-control  select2bs4" style="width: 100%;"
                                                 name="instructor_id" required>
                                                 <option value="" selected>--select instructor--</option>
                                                 @foreach ($instructors as $instructor)
-                                                    <option value="{{ $instructor->id }}" @if ($instructor->id == $course->instructor_id) {{ 'selected' }} @endif>{{ $instructor->name }}
+                                                    <option value="{{ $instructor->id }}"
+                                                        @if ($instructor->id == $course->instructor_id) {{ 'selected' }} @endif>
+                                                        {{ $instructor->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Language<span class="text-danger">*</span></label>
-                                        <select class="form-control  select2bs4" style="width: 100%;" name="language"
-                                            required>
-                                            <option value="" selected>--select language--</option>
-                                            <option value="Bangla"
-                                                @if ($course->language === 'Bangla') {{ 'selected' }} @endif>Bangla</option>
-                                            <option value="English"
-                                                @if ($course->language === 'English') {{ 'selected' }} @endif>English
-                                            </option>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Language<span class="text-danger">*</span></label>
+                                            <select class="form-control  select2bs4" style="width: 100%;" name="language"
+                                                required>
+                                                <option value="" selected>--select language--</option>
+                                                <option value="Bangla"
+                                                    @if ($course->language === 'Bangla') {{ 'selected' }} @endif>Bangla
+                                                </option>
+                                                <option value="English"
+                                                    @if ($course->language === 'English') {{ 'selected' }} @endif>English
+                                                </option>
 
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -129,8 +131,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="duration">Course duration<span
-                                                    class="text-danger">*</span></label>
+                                            <label for="duration">Course duration<span class="text-danger">*</span></label>
                                             <input type="text" name="duration" class="form-control" id="duration"
                                                 placeholder="Discount price" value="{{ $course->duration }}" />
                                         </div>
@@ -146,32 +147,27 @@
 
                                 <div class="form-group">
                                     <label for="course_details">Course details<span class="text-danger">*</span></label>
-                                    <textarea type="text" name="details" class="form-control" id="summernote"
-                                        rows="10">{{ $course->details }}</textarea>
+                                    <textarea type="text" name="details" class="form-control" id="summernote" rows="10">{{ $course->details }}</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="course_details">Course audience</label>
-                                    <textarea type="text" name="audience" class="form-control" id="summernote1"
-                                        rows="10">{{ $course->audience }}</textarea>
+                                    <textarea type="text" name="audience" class="form-control" id="summernote1" rows="10">{{ $course->audience }}</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="course_details">Prerequisite of this course</label>
-                                    <textarea type="text" name="prerequisite" class="form-control" id="summernote2"
-                                        rows="10">{{ $course->prerequisite }}</textarea>
+                                    <textarea type="text" name="prerequisite" class="form-control" id="summernote2" rows="10">{{ $course->prerequisite }}</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="course_details">Why this course</label>
-                                    <textarea type="text" name="why_this_course" class="form-control" id="summernote3"
-                                        rows="10">{{ $course->why_this_course }}</textarea>
+                                    <textarea type="text" name="why_this_course" class="form-control" id="summernote3" rows="10">{{ $course->why_this_course }}</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="course_details">Learning outcomes</label>
-                                    <textarea type="text" name="learning_outcomes" class="form-control" id="summernote4"
-                                        rows="10">{{ $course->learning_outcomes }}</textarea>
+                                    <textarea type="text" name="learning_outcomes" class="form-control" id="summernote4" rows="10">{{ $course->learning_outcomes }}</textarea>
                                 </div>
 
                                 <hr>
@@ -183,19 +179,25 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="sample_video_link">Course sample video link</label>
-                                    <textarea rows="2" type="text" name="sample_video_link" class="form-control" id="sample_video_link"
-                                        placeholder="Course sample video link">{{ $course->sample_video_link }}</textarea>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="provider_name">Provider name<span class="text-danger">*</span></label>
                                     <input type="text" name="provider_name" class="form-control" id="provider_name"
                                         placeholder="Provider name" value="{{ $course->provider_name }}">
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="sample_video_link">Course sample video</label>
+                                            <input type="file" name="sample_video_link" class="form-control"
+                                                id="sample_video_link" placeholder="Course sample video"
+                                                value="{{ old('sample_video_link') }}">
+                                            <video style="height: 100px;width:200px;" controls preload="auto" autoplay
+                                                loop muted>
+                                                <source src="{{ asset($course->sample_video_link) }}" type='video/mp4'>
+                                            </video>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="thumbnil_image">Course thumbnil image<span
                                                     class="text-danger">*</span></label>
@@ -205,7 +207,7 @@
                                                 style="height:100px;width:150px;">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="provider_logo">Provider company logo/logo</label>
                                             <input type="file" name="provider_logo" class="form-control"
@@ -214,7 +216,7 @@
                                                 style="height:100px;width:150px;">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="provider_signature">Provider signature<span
                                                     class="text-danger">*</span></label>

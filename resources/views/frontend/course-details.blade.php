@@ -95,10 +95,13 @@
                 <div class="col-lg-8">
                     <div class="courses-details-image text-center">
                         @if ($course->sample_video_link)
-                            <iframe width="736" height="400" src="{{ $course->sample_video_link }}"
+                            {{-- <iframe width="736" height="400" src="{{ $course->sample_video_link }}"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                                allowfullscreen></iframe> --}}
+                            <video style="height: 400px;width:736px;" controls preload="auto" autoplay loop muted>
+                                <source src="{{ asset($course->sample_video_link) }}" type='video/mp4'>
+                            </video>
                         @else
                             <img src="{{ asset($course->thumbnil_image) }}" alt="image">
                         @endif
