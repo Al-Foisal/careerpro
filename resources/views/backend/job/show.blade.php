@@ -45,7 +45,10 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>##</th>
+                                        <th></th>
+                                        <th>S.l</th>
+                                        <th>Action</th>
+                                        <th>Status</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
@@ -61,6 +64,20 @@
                                     @foreach ($job->jobApplications as $key => $app)
                                         <tr>
                                             <td>{{ ++$key }}</td>
+                                            <td>
+                                                @if ($app->selected == 0)
+                                                    <form action="{{ route('user.job.selected', $app) }}" method="post">
+                                                        @csrf
+                                                        <button class="btn btn-success btn-xs" type="submit">SELECT</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('user.job.nonSelected', $app) }}" method="post">
+                                                        @csrf
+                                                        <button class="btn btn-danger btn-xs" type="submit">REJECT</button>
+                                                    </form>
+                                                @endif
+                                            </td>
+                                            <td>{{ $app->selected_applicatiant }}</td>
                                             <td>{{ $app->name }}</td>
                                             <td>{{ $app->email }}</td>
                                             <td>{{ $app->phone }}</td>

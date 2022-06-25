@@ -106,6 +106,8 @@ Route::middleware('auth')->prefix('/user')->as('user.')->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/create/store', 'store')->name('store');
         Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/show/selected/{id}', 'selected')->name('selected');
+        Route::post('/show/non-selected/{id}', 'nonSelected')->name('nonSelected');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/update/{id}', 'update')->name('update');
         Route::post('/active/{id}', 'active')->name('active');
@@ -293,6 +295,8 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
         Route::get('/create', 'create')->name('create');
         Route::post('/create/store', 'store')->name('store');
         Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/show/selected/{id}', 'selected')->name('selected');
+        Route::post('/show/non-selected/{id}', 'nonSelected')->name('nonSelected');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/update/{id}', 'update')->name('update');
         Route::post('/active/{id}', 'active')->name('active');

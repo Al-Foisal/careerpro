@@ -39,7 +39,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                             @foreach ($jobs as $key => $job)
                                 <tr>
 
@@ -56,7 +55,7 @@
                                                 data-toggle="dropdown" aria-expanded="false">
                                                 Action
                                             </button>
-                                            <div class="dropdown-menu">
+                                            <div class="dropdown-menu1">
                                                 <a class="dropdown-item"
                                                     href="{{ route('user.job.show', $job) }}">View Details</a>
                                                 <a class="dropdown-item"

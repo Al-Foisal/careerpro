@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Job;
+use App\Models\JobApplication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -67,6 +69,32 @@ class JobController extends Controller
         $job = Job::with('jobApplications')->where('id', $id)->first();
 
         return view('backend.job.show', compact('job'));
+    }
+
+    public function selected($id) {
+        $job = JobApplication::where('id', $id)->first();
+
+        if (!$job) {
+            return redirect()->back()->withToastError('Access denide!');
+        }
+
+        $job->selected = 1;
+        $job->save();
+
+        return redirect()->back()->withToastSuccess('The applicatiant selected successfully!!');
+    }
+
+    public function nonSelected($id) {
+        $job = JobApplication::where('id', $id)->first();
+
+        if (!$job) {
+            return redirect()->back()->withToastError('Access denide!');
+        }
+
+        $job->selected = 0;
+        $job->save();
+
+        return redirect()->back()->withToastSuccess('The applicatiant rejected successfully!!');
     }
 
     public function edit($id) {

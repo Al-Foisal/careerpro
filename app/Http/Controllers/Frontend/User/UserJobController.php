@@ -73,6 +73,32 @@ class UserJobController extends Controller {
         return view('frontend.user.job.show', compact('job'));
     }
 
+    public function selected($id) {
+        $job = Job::where('id', $id)->where('user_id', Auth::id())->first();
+
+        if (!$job) {
+            return redirect()->back()->withToastError('Access denide!');
+        }
+
+        $job->selected = 1;
+        $job->save();
+
+        return redirect()->back()->withToastSuccess('The applicatiant selected successfully!!');
+    }
+
+    public function nonSelected($id) {
+        $job = Job::where('id', $id)->where('user_id', Auth::id())->first();
+
+        if (!$job) {
+            return redirect()->back()->withToastError('Access denide!');
+        }
+
+        $job->selected = 0;
+        $job->save();
+
+        return redirect()->back()->withToastSuccess('The applicatiant rejected successfully!!');
+    }
+
     public function edit($id) {
         $job = Job::where('id', $id)->where('user_id', Auth::id())->first();
 
@@ -131,7 +157,7 @@ class UserJobController extends Controller {
         }
 
         $job->update([
-            'user_id'  => Auth::id(),
+            'user_id'   => Auth::id(),
             'name'      => $request->name,
             'dead_line' => $request->dead_line,
             'details'   => $request->details,
