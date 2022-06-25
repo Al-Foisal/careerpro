@@ -79,6 +79,7 @@ return array(
     'App\\Models\\Instructor' => $baseDir . '/app/Models/Instructor.php',
     'App\\Models\\Job' => $baseDir . '/app/Models/Job.php',
     'App\\Models\\JobApplication' => $baseDir . '/app/Models/JobApplication.php',
+    'App\\Models\\MemberShipPackage' => $baseDir . '/app/Models/MemberShipPackage.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\OrderCourse' => $baseDir . '/app/Models/OrderCourse.php',
     'App\\Models\\Page' => $baseDir . '/app/Models/Page.php',

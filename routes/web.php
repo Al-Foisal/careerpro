@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\HelpController;
 use App\Http\Controllers\Backend\JobController;
 use App\Http\Controllers\Backend\MainMenu\CategoryController;
 use App\Http\Controllers\Backend\MainMenu\SubcategoryController;
+use App\Http\Controllers\Backend\MemberShipPackageController;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
@@ -289,6 +290,7 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
     Route::resource('/coupons', CouponController::class);
     Route::resource('/abouts', AboutController::class);
     Route::resource('/services', ServiceController::class);
+    Route::resource('/memberships', MemberShipPackageController::class);
 
     Route::controller(JobController::class)->prefix('/job')->as('job.')->group(function () {
         Route::get('/', 'index')->name('index');

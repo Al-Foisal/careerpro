@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
-class CategoryController extends Controller {
+class CategoryController extends Controller 
+{
     public function category() {
         $categories = Category::withCount('subcategories')->paginate(50);
 

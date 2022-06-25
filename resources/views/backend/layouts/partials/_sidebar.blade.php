@@ -207,6 +207,12 @@
                                 <p>Contact</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.memberships.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>Membership Package</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 
