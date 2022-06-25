@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Blog Comments List')
+@section('title', 'Article Comments List')
 @section('cssLink')
 @endsection
 @section('cssStyle')
@@ -11,13 +11,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Blog Comments</h1>
+                    <h1>Article Comments</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item">Blog</li>
-                        <li class="breadcrumb-item active">Blog Comments</li>
+                        <li class="breadcrumb-item">Article</li>
+                        <li class="breadcrumb-item active">Article Comments</li>
                     </ol>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                                     <tr>
                                         <th>Action</th>
                                         <th>Is Approved?</th>
-                                        <th>Blog Name</th>
+                                        <th>Article Name</th>
                                         <th>Commenter Comment</th>
                                         <th>Commenter Name</th>
                                         <th>Commenter Email</th>

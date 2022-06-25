@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Our Blogs')
+@section('title', 'Our Article')
 @section('css')
 @endsection
 @section('content')
@@ -9,9 +9,9 @@
         <div class="page-title-content">
             <ul>
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li>Blog</li>
+                <li>Article</li>
             </ul>
-            <h2>Our Blog</h2>
+            <h2>Our Article</h2>
         </div>
     </div>
 </div>

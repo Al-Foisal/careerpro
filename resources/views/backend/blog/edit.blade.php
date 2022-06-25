@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Edit Blog')
+@section('title', 'Edit Article')
 
 @section('backend')
     <!-- Content Header (Page header) -->
@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit Blog</h1>
+                    <h1>Edit Article</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Edit Blog</li>
+                        <li class="breadcrumb-item active">Article</li>
                     </ol>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                             @method('put')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Blog Image (600 x 485)</label>
+                                    <label for="exampleInputFile">Article Image (600 x 485)</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="form-control" name="image" id="exampleInputFile">
@@ -43,9 +43,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Blog Name</label>
+                                    <label for="exampleInputEmail1">Article Name</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Enter blog name" name="name" value="{{ $blog->name }}">
+                                        placeholder="Enter Article name" name="name" value="{{ $blog->name }}">
                                 </div>
 
                                 <div class="form-group">
@@ -65,7 +65,7 @@
                                         <div class="card card-outline card-info">
                                             <div class="card-header">
                                                 <h3 class="card-title">
-                                                    Blog Details
+                                                    Article Details
                                                 </h3>
                                             </div>
                                             <!-- /.card-header -->

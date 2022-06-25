@@ -1,17 +1,17 @@
 @extends('backend.layouts.master')
-@section('title', 'Blog List')
+@section('title', 'Article List')
 @section('backend')
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Blog</h1>
+                    <h1>Article</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Blog</li>
+                        <li class="breadcrumb-item active">Article</li>
                     </ol>
                 </div>
             </div>
@@ -26,17 +26,17 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('admin.blogs.create') }}" class="btn btn-outline-primary">Create New Blog</a>
+                            <a href="{{ route('admin.blogs.create') }}" class="btn btn-outline-primary">Create New Article</a>
                             <br>
                             <br>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Action</th>
-                                        <th>Blog Image</th>
-                                        <th>Blog Name</th>
-                                        <th>Blog Author</th>
-                                        <th>Blog Details</th>
+                                        <th>Article Image</th>
+                                        <th>Article Name</th>
+                                        <th>Article Author</th>
+                                        <th>Article Details</th>
                                         <th>Created_at</th>
                                     </tr>
                                 </thead>

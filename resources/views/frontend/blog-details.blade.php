@@ -12,7 +12,7 @@
                 <li>
                     <a href="{{ route('home') }}">Home</a>
                 </li>
-                <li>Blog</li>
+                <li>Article</li>
             </ul>
             <h2>{{ $blog->name }}</h2>
         </div>

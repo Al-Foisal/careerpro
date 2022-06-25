@@ -188,7 +188,7 @@
                                     <li class="nav-item">
                                         <a href="{{ route('blog') }}"
                                             class="nav-link">
-                                            Blog
+                                            Article
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -357,7 +357,7 @@
                                     <li class="nav-item">
                                         <a href="{{ route('blog') }}"
                                             class="nav-link">
-                                            Blog
+                                            Article
                                         </a>
                                     </li>
                                     <li class="nav-item">
