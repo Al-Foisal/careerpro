@@ -116,7 +116,7 @@
                         </li>
                         
                         <li>
-                            <a href="{{ route('instructor') }}">Instructors</a>
+                            <a href="{{ route('instructor') }}">Resource Person</a>
                         </li>
                         <li>
                             <a href="{{ route('home') }}">Home</a>

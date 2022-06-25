@@ -63,7 +63,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.instructorList') }}" class="nav-link">
                                     <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p>Instructor List</p>
+                                    <p>Resource Person List</p>
                                 </a>
                             </li>
                         </ul>
@@ -110,7 +110,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p class="text">
-                            Instructor Deeds
+                            Resource Person Deeds
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>

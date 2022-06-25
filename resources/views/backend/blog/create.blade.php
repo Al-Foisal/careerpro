@@ -45,7 +45,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Select Instructor<span class="text-danger">*</span></label>
+                                    <label>Select Resource Person<span class="text-danger">*</span></label>
                                     <select class="form-control  select2bs4" style="width: 100%;"
                                         name="instructor_id" required>
                                         <option value="" selected>--select instructor--</option>

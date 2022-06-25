@@ -9,9 +9,9 @@
             <div class="page-title-content">
                 <ul>
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li>Instructors</li>
+                    <li>Resource Person</li>
                 </ul>
-                <h2>Team of Instructors</h2>
+                <h2>Team of Resource Person</h2>
             </div>
         </div>
     </div>

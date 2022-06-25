@@ -99,7 +99,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Instructor</th>
+                                    <th>Resource Person</th>
                                     <th>Course Name</th>
                                     <th>Unit Price</th>
                                 </tr>

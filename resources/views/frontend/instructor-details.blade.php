@@ -9,7 +9,7 @@
             <div class="page-title-content">
                 <ul>
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li>Instructors</li>
+                    <li>Resource Person</li>
                 </ul>
                 <h2>{{ $instructor->name }}</h2>
             </div>

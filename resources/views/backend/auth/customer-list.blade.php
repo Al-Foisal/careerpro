@@ -34,7 +34,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Instructor</th>
+                                        <th>Resource Person</th>
                                         <th>Image</th>
                                     </tr>
                                 </thead>

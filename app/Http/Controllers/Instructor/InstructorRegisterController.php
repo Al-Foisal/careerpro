@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class InstructorRegisterController extends Controller {
     public function register() {
-        $is_instructor = auth()->user()->is_instructor ?? null;
+        $is_instructor = auth()->user()->is_instructor;
 
         return view('frontend.instructor.auth.register', compact('is_instructor'));
     }

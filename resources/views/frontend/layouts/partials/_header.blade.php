@@ -55,10 +55,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('logout') }}">
-                                    <i class="bx bx-log-in-circle"></i>
-                                    Logout
-                                </a>
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" style="border:none;color:white;text-decoration: none;"
+                                    class="myAccount-logout btn btn-link"><i class="bx bx-log-in-circle"></i>Logout</button>
+                                </form>
                             </li>
                         @else
                             <li>
@@ -212,6 +213,12 @@
                                         <a href="{{ route('contact') }}"
                                             class="nav-link">
                                             Contact
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('instructor.register') }}"
+                                            class="nav-link">
+                                            Be a Resource Person
                                         </a>
                                     </li>
                                     @auth
@@ -375,6 +382,12 @@
                                         <a href="{{ route('contact') }}"
                                             class="nav-link">
                                             Contact
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('instructor.register') }}"
+                                            class="nav-link">
+                                            Be a Resource Person
                                         </a>
                                     </li>
                                     @auth

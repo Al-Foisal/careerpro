@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Instructor Login Area - {{ config('app.name') }}</title>
+    <title>Resource Person Login Area - {{ config('app.name') }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -27,7 +27,7 @@
                 <img src="{{ asset($company->logo) }}" style="height: 100px;">
             </div>
             <div class="card-body">
-                <p style="text-align: center;font-weight:700;">Instructor session area.</p>
+                <p style="text-align: center;font-weight:700;">Resource Person session area.</p>
                 <form action="{{ route('instructor.login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">

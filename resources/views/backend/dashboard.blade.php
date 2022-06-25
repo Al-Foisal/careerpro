@@ -27,7 +27,7 @@
                         <span class="info-box-icon bg-info"><i class="fas fa-chalkboard-teacher"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Approved Instructor</span>
+                            <span class="info-box-text">Approved Resource Person</span>
                             <span class="info-box-number">{{ $ainatructor }}</span>
                         </div>
                         <!-- /.info-box-content -->
@@ -40,7 +40,7 @@
                         <span class="info-box-icon bg-info"><i class="fas fa-user-alt-slash"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Disapproved Instructor</span>
+                            <span class="info-box-text">Disapproved Resource Person</span>
                             <span class="info-box-number">{{ $iinatructor }}</span>
                         </div>
                         <!-- /.info-box-content -->

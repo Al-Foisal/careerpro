@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Register for an instructor')
+@section('title', 'Register for a Resource Person')
 @section('css')
 @endsection
 
@@ -26,13 +26,13 @@
                                 </div>
 
                                 <h3>Open up your {{ config('app.name') }} Account now</h3>
-                                @if ($is_instructor === null)
-                                    <p>Please <a href="{{ route('login') }}" style="color: red;">login</a> to be an
-                                        instructor.</p>
+                                @if (!auth()->check())
+                                    <p>Please <a href="{{ route('login') }}" style="color: red;">login</a> to be a
+                                        Resource Person.</p>
                                 @elseif($is_instructor === 0)
                                     <p>Your application is under review.</p>
                                 @elseif($is_instructor === 1)
-                                    <p>Welcome to be an instructor, <a href="">Login now.</a></p>
+                                    <p>Welcome to be a Resource Person, <a href="">Login now.</a></p>
                                 @else
                                     <form action="{{ route('instructor.register') }}" method="post">
                                         @csrf
@@ -55,7 +55,7 @@
                                                 class="form-control">
                                         </div>
 
-                                        <button type="submit">Register as Instructor</button>
+                                        <button type="submit">Register as Resource Person</button>
                                     </form>
                                 @endif
                             </div>

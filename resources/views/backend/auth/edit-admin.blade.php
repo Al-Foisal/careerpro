@@ -4,7 +4,9 @@
 @section('backend')
     <div class="">
         <div class="register-logo">
-            <a href="{{ route('admin.dashboard') }}" class="h1">Bazar<b>kart</b></a>
+            <a href="{{ route('admin.dashboard') }}" class="h1">
+            {{ config('app.name') }}
+            </a>
         </div>
 
         <div class="card">

@@ -79,7 +79,8 @@
                                 </div>
                                 <p>Already signed up? <a href="{{ route('login') }}">Log in</a></p>
 
-                                <form>
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="text" name="name" id="name" placeholder="Your name"
                                             class="form-control" required>

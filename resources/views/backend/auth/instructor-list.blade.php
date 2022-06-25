@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Instructor List')
+@section('title', 'Resource Person List')
 
 @section('backend')
     <!-- Content Header (Page header) -->
@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Instructor</h1>
+                    <h1>Resource Person List</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Instructor List</li>
+                        <li class="breadcrumb-item active">Resource Person</li>
                     </ol>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                                                                 method="post">
                                                                 @csrf
                                                                 <button class="dropdown-item" type="submit">Active
-                                                                    Instructor</button>
+                                                                    Resource Person</button>
                                                             </form>
                                                         @else
                                                             <form
@@ -65,7 +65,7 @@
                                                                 method="post">
                                                                 @csrf
                                                                 <button class="dropdown-item" type="submit">Inactive
-                                                                    Instructor</button>
+                                                                    Resource Person</button>
                                                             </form>
                                                         @endif
                                                         {{-- <a class="dropdown-item"

@@ -134,7 +134,7 @@
                         @endif
                         <hr>
 
-                        <h3>Meet your instructors</h3>
+                        <h3>Meet your Resource Person</h3>
                         <div class="courses-author">
                             <div class="author-profile-header"></div>
                             <div class="author-profile">

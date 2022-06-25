@@ -171,6 +171,12 @@
                                             Contact
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('instructor.register') }}"
+                                            class="nav-link">
+                                            Be a Resource Person
+                                        </a>
+                                    </li>
                                     @auth
                                         <li class="nav-item">
                                             <a href="{{ route('user.dashboard') }}"
@@ -336,6 +342,12 @@
                                         <a href="{{ route('contact') }}"
                                             class="nav-link">
                                             Contact
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('instructor.register') }}"
+                                            class="nav-link">
+                                            Be a Resource Person
                                         </a>
                                     </li>
                                     @auth
