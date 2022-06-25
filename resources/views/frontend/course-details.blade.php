@@ -275,7 +275,7 @@
                         @foreach ($related_courses as $related)
                             <div class="single-courses-box mb-30">
                                 <div class="courses-image">
-                                    <a href="single-courses.html" class="d-block">
+                                    <a href="{{ route('courseDetails', $related->slug) }}" class="d-block">
                                         <img src="{{ asset($related->thumbnil_image) }}" alt="image">
                                     </a>
                                 </div>
@@ -286,7 +286,7 @@
                                         <span>{{ $related->instructor->name }}</span>
                                     </div>
                                     <h3>
-                                        <a href="single-courses.html" class="d-inline-block">{{ $course->name }}</a>
+                                        <a href="{{ route('courseDetails', $related->slug) }}" class="d-inline-block">{{ $related->name }}</a>
                                     </h3>
                                     {{-- <div class="courses-rating">
                                         <div class="review-stars-rated">
@@ -305,7 +305,7 @@
                                     <ul class="d-flex justify-content-between">
                                         <li class="courses-lesson d-flex justify-content-between">
                                             <i class="bx bx-book-open" style="margin-right: 5px;"></i>
-                                            {{ $course->lesson }} lessons
+                                            {{ $related->lesson }} lessons
                                         </li>
                                         @if ($related->discount_price)
                                             <li class="courses-price">
