@@ -61,6 +61,8 @@ Route::get('/cc', function () {
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'index')->name('home');
 
+    Route::get('course-schedule/importExportView', 'importExportView')->name('importExportView');
+
     Route::get('/about-us', 'about')->name('about');
     Route::get('/our-services', 'service')->name('service');
     Route::get('/service/{id}', 'serviceDetails')->name('serviceDetails');
@@ -236,6 +238,10 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
         Route::get('/instructor-list', 'instructorList')->name('instructorList');
         Route::post('/admin/active-instructor/{instructor}', 'activeInstructor')->name('activeInstructor');
         Route::post('/admin/inactive-instructor/{instructor}', 'inactiveInstructor')->name('inactiveInstructor');
+
+        Route::get('/course-schedule/create', 'courseScheduleCreate')->name('courseScheduleCreate');
+        Route::get('/course-schedule/export', 'courseScheduleExport')->name('courseScheduleExport');
+        Route::post('/course-schedule/import', 'courseScheduleImport')->name('courseScheduleImport');
     });
 
     // Route::middleware('main_menu')->group(function () {

@@ -9,6 +9,7 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Course;
+use App\Models\CourseSchedule;
 use App\Models\FAQ;
 use App\Models\Help;
 use App\Models\Instructor;
@@ -32,6 +33,13 @@ class FrontendController extends Controller {
             ->get();
 
         return view('frontend.index', $data);
+    }
+
+    public function importExportView() {
+        $data            = [];
+        $data['courses'] = CourseSchedule::paginate(50);
+
+        return view('frontend.course-schedule-index', $data);
     }
 
     public function about() {

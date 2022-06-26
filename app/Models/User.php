@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable {
     use HasFactory, Notifiable;
 
+    public function member() {
+        return $this->belongsTo(MemberShipPackage::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

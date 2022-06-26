@@ -189,6 +189,12 @@
                                             Our Resource Person
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('importExportView') }}"
+                                            class="nav-link">
+                                            Our Course Schedule
+                                        </a>
+                                    </li>
                                     @auth
                                         <li class="nav-item">
                                             <a href="{{ route('user.dashboard') }}"
@@ -365,6 +371,12 @@
                                         <a href="{{ route('instructor') }}"
                                             class="nav-link">
                                             Our Resource Person
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('importExportView') }}"
+                                            class="nav-link">
+                                            Our Course Schedule
                                         </a>
                                     </li>
                                     @auth

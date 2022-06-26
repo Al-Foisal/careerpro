@@ -219,6 +219,12 @@
                                 <p>Books</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.courseScheduleCreate') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>Course Schedule</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 

@@ -35,6 +35,7 @@
                         <div class="col-lg-8 col-md-7">
                             <div class="profile-content">
                                 <h3>{{ auth()->user()->name }}</h3>
+                                <p><b>Your Membership Package: </b>{{ $member_ship_package->name }}</p>
                                 <p>{{ auth()->user()->bio }}</p>
                                 <ul class="contact-info">
                                     <li>

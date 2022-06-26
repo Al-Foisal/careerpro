@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Backend\Auth;
 
+use App\Exports\CourseScheduleExport;
 use App\Http\Controllers\Controller;
+use App\Imports\CourseScheduleImport;
+use App\Models\CourseSchedule;
 use App\Models\Instructor;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BackendManagementController extends Controller {
 
@@ -37,5 +41,20 @@ class BackendManagementController extends Controller {
         $instructor->save();
 
         return redirect()->back()->withToastSuccess('The instructor inactivated successfully!!');
+    }
+
+    public function courseScheduleCreate()
+    {
+        return view('backend.course-schedule-create');
+    }
+
+    public function courseScheduleImport() {
+        Excel::import(new CourseScheduleImport, request()->file('file'));
+
+        return back()->withToastSuccess('Course schedule uploaded successfully!!');
+    }
+
+    public function courseScheduleExport() {
+        return Excel::download(new CourseScheduleExport, 'course_schedule.xlsx');
     }
 }
