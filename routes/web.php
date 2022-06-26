@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\AdminResetPasswordController;
 use App\Http\Controllers\Backend\Auth\BackendManagementController;
 use App\Http\Controllers\Backend\BackendInstructorController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\BookController;
 use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\DashboardController;
@@ -63,6 +64,9 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/about-us', 'about')->name('about');
     Route::get('/our-services', 'service')->name('service');
     Route::get('/service/{id}', 'serviceDetails')->name('serviceDetails');
+
+    Route::get('/our-books', 'book')->name('book');
+    Route::get('/book/{id}', 'bookDetails')->name('bookDetails');
 
     Route::get('/job', 'job')->name('job');
     Route::get('/walk-in-interview-job', 'walkInInterviewJob')->name('walkInInterviewJob');
@@ -291,6 +295,7 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
     Route::resource('/abouts', AboutController::class);
     Route::resource('/services', ServiceController::class);
     Route::resource('/memberships', MemberShipPackageController::class);
+    Route::resource('/books', BookController::class);
 
     Route::controller(JobController::class)->prefix('/job')->as('job.')->group(function () {
         Route::get('/', 'index')->name('index');

@@ -26,7 +26,7 @@
                     <div class="single-blog-post mb-30">
                         <div class="post-image">
                             <a href="{{ route('blogDetails', $blog->slug) }}" class="d-block">
-                                <img src="{{ asset($blog->image) }}" alt="image">
+                                <img src="{{ asset($blog->image) }}" style="width:313px;height:253px;">
                             </a>
                         </div>
     

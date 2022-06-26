@@ -194,7 +194,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="thumbnil_image">Course thumbnil image<span
+                                            <label for="thumbnil_image">Course thumbnil image(600x485)<span
                                                     class="text-danger">*</span></label>
                                             <input type="file" name="thumbnil_image" class="form-control"
                                                 id="thumbnil_image" placeholder="Course thumbnil image"

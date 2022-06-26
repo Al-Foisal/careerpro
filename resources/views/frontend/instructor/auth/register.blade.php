@@ -32,7 +32,7 @@
                                 @elseif($is_instructor === 0)
                                     <p>Your application is under review.</p>
                                 @elseif($is_instructor === 1)
-                                    <p>Welcome to be a Resource Person, <a href="">Login now.</a></p>
+                                    <p>Welcome to be a Resource Person, <a href="{{ route('instructor.login') }}" class="text-danger">Login</a> now.</p>
                                 @else
                                     <form action="{{ route('instructor.register') }}" method="post">
                                         @csrf

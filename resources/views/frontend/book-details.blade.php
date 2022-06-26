@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', $service->name)
+@section('title', $book->name)
 @section('css')
 @endsection
 @section('content')
@@ -12,9 +12,9 @@
                     <a href="{{ route('home') }}">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('service') }}">Our Services</a>
+                    <a href="{{ route('book') }}">Our Books</a>
                 </li>
-                <li>{{ $service->name }}</li>
+                <li>{{ $book->name }}</li>
             </ul>
         </div>
     </div>
@@ -23,12 +23,12 @@
 <!-- Start FAQ Area -->
 <section class="faq-area ptb-100">
     <div class="container">
-        <h1 class="text-center mb-30">{{ $service->name }}</h1>
+        <h1 class="text-center mb-30">{{ $book->name }}</h1>
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-12">
                 <div class="products-details-image">
                     <ul class="slickslide">
-                        <li><img src="{{ asset($service->image) }}" style="width:451px;height:480px;"></li>
+                        <li><img src="{{ asset($book->image) }}" style="width:451px;height:480px;"></li>
                     </ul>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <div class="col-lg-7 col-md-12">
                 <div class="product-details-desc">
 
-                    {!! $service->details !!}
+                    {!! $book->details !!}
                 </div>
             </div>
         </div>

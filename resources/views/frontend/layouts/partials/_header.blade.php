@@ -114,7 +114,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="javascript:;" class="nav-link">
                                     Courses
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
@@ -160,7 +160,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="javascript:;" class="nav-link">
                                     Job Portal
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
@@ -180,7 +180,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="javascript:;" class="nav-link">
                                     Others
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
@@ -221,19 +221,24 @@
                                             Be a Resource Person
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('book') }}"
+                                            class="nav-link">
+                                            Book
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('instructor') }}"
+                                            class="nav-link">
+                                            Our Resource Person
+                                        </a>
+                                    </li>
                                     @auth
                                         <li class="nav-item">
                                             <a href="{{ route('user.dashboard') }}"
                                                 class="nav-link">
                                                 My Account
                                             </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <form action="{{ route('logout') }}" method="post">
-                                                @csrf
-                                                <button type="submit" style="border:none;"
-                                                class="myAccount-logout">Logout</button>
-                                            </form>
                                         </li>
                                     @else
                                         <li class="nav-item">
@@ -283,7 +288,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="javascript:;" class="nav-link">
                                     Courses
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
@@ -329,7 +334,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="javascript:;" class="nav-link">
                                     Job Portal
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
@@ -349,7 +354,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="javascript:;" class="nav-link">
                                     Others
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
@@ -390,19 +395,24 @@
                                             Be a Resource Person
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('book') }}"
+                                            class="nav-link">
+                                            Book
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('instructor') }}"
+                                            class="nav-link">
+                                            Our Resource Person
+                                        </a>
+                                    </li>
                                     @auth
                                         <li class="nav-item">
                                             <a href="{{ route('user.dashboard') }}"
                                                 class="nav-link">
                                                 My Account
                                             </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <form action="{{ route('logout') }}" method="post">
-                                                @csrf
-                                                <button type="submit" style="border:none;"
-                                                class="myAccount-logout">Logout</button>
-                                            </form>
                                         </li>
                                     @else
                                         <li class="nav-item">

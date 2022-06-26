@@ -30,7 +30,7 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Article Image (770 x 520)</label>
+                                    <label for="exampleInputFile">Article Image (600x485)</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="form-control" name="image" id="exampleInputFile">

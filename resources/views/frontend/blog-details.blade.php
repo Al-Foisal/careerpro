@@ -26,7 +26,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="blog-details-desc">
                     <div class="article-image">
-                        <img src="{{ asset($blog->image) }}" alt="image">
+                        <img src="{{ asset($blog->image) }}" style="width:1190px;height:902px;">
                     </div>
                     <div class="article-content">
                         <div class="entry-meta">

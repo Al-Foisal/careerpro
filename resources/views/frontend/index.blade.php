@@ -12,7 +12,7 @@
                     @foreach ($slider as $slid)
                         <li>
                             <!-- MAIN IMAGE -->
-                            <img src="{{ asset($slid->image) }}" alt="" data-bgposition="center center" data-kenburns="on"
+                            <img src="{{ asset($slid->image) }}"  data-bgposition="center center" data-kenburns="on"
                                 data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120"
                                 data-rotatestart="0" data-rotateend="0" data-offsetstart="0 500" data-offsetend="0 -500"
                                 data-bgparallax="10" class="rev-slidebg" data-no-retina>
@@ -52,7 +52,7 @@
                         <div class="single-courses-box mb-30">
                             <div class="courses-image">
                                 <a href="{{ route('courseDetails', $course->slug) }}" class="d-block">
-                                    <img src="{{ $course->thumbnil_image }}" alt="image"
+                                    <img src="{{ $course->thumbnil_image }}" style="width:300px;height:242px;"
                                         >
                                 </a>
                             </div>

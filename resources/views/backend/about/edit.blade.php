@@ -33,7 +33,7 @@
                             @method('put')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Image</label>
+                                    <label for="exampleInputFile">Image(695x815)</label>
                                     <div class="">
                                         <input type="file" class="form-control" name="image"
                                             id="exampleInputFile">

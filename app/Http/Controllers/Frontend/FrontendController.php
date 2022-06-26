@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Blog;
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Course;
@@ -49,6 +50,18 @@ class FrontendController extends Controller {
         $service = Service::find($id);
 
         return view('frontend.service-details', compact('service'));
+    }
+
+    public function book() {
+        $books = Book::all();
+
+        return view('frontend.book', compact('books'));
+    }
+
+    public function bookDetails($id) {
+        $book = Book::find($id);
+
+        return view('frontend.book-details', compact('book'));
     }
 
     public function categoryCourses($category, $sub = null) {

@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Our Services')
+@section('title', 'Our Books')
 @section('css')
 @endsection
 @section('content')
@@ -11,9 +11,9 @@
                     <li>
                         <a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li>Service</li>
+                    <li>Book</li>
                 </ul>
-                <h2>Our Services</h2>
+                <h2>Our Books</h2>
             </div>
         </div>
     </div>
@@ -21,20 +21,20 @@
     <!-- Start FAQ Area -->
     <section class="faq-area ptb-100">
         <div class="container">
-            <h1 class="text-center mb-30">All Services of {{ config('app.name') }}</h1>
+            <h1 class="text-center mb-30">All Books of {{ config('app.name') }}</h1>
             <div class="row">
-                @foreach ($services as $service)
-                    <div class="col-lg-4 col-md-6 col-sm-6">
+                @foreach ($books as $book)
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-product-box mb-30">
                             <div class="product-image">
-                                <a href="{{ route('serviceDetails', $service) }}">
-                                    <img src="{{ asset($service->image) }}" style="width:356px;height:379px;">
+                                <a href="{{ route('bookDetails', $book) }}">
+                                    <img src="{{ asset($book->image) }}" style="width:261px;height:278px;">
                                 </a>
                             </div>
 
                             <div class="product-content">
-                                <h3><a href="{{ route('serviceDetails', $service) }}">
-                                        {{ $service->name }}
+                                <h3><a href="{{ route('bookDetails', $book) }}">
+                                        {{ $book->name }}
                                     </a></h3>
                             </div>
                         </div>

@@ -43,8 +43,18 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <textarea type="text" name="bio" id="bio" placeholder="Your biography" rows="4"
-                                            class="form-control">{{ $user->bio }}</textarea>
+                                        <select name="member_ship_package_id" class="form-control">
+                                            <option value="">Select package</option>
+                                            @foreach ($package as $pack)
+                                                <option value="{{ $pack->id }}"
+                                                    @if ($user->member_ship_package_id == $pack->id) selected @endif>{{ $pack->name }}(TK: {{ $pack->amount }}/=)
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea type="text" name="bio" id="bio" placeholder="Your biography" rows="4" class="form-control">{{ $user->bio }}</textarea>
                                     </div>
 
                                     <div class="form-group">

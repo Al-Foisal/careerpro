@@ -5,7 +5,6 @@
         .page-title-area.item-bg2 {
             background-image: url({{ asset($category->image) }});
         }
-
     </style>
 @endsection
 @section('content')
@@ -110,7 +109,8 @@
                             </div>
                             <div class="courses-content">
                                 <div class="course-author d-flex align-items-center">
-                                    <img src="{{ asset($course->instructor->image) }}" class="rounded-circle mr-2" alt="image">
+                                    <img src="{{ asset($course->instructor->image) }}" class="rounded-circle mr-2"
+                                        alt="image">
                                     <span>{{ $course->instructor->name }}</span>
                                 </div>
                                 <h5>
