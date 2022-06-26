@@ -142,6 +142,10 @@ Route::middleware('auth')->prefix('/user')->as('user.')->group(function () {
     Route::get('/order-details/{id}', [UserDashboardController::class, 'orderDetails'])->name('orderDetails');
     Route::get('/profile', [UserProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update/{id}', [UserProfileController::class, 'update'])->name('profile.update');
+});
+Route::middleware('auth')->prefix('/instructor')->as('instructor.')->group(function () {
+    //instructor
+    Route::get('/register', [InstructorRegisterController::class, 'register'])->name('register');
 
 });
 
@@ -149,7 +153,7 @@ require __DIR__ . '/auth.php';
 
 //instructor
 Route::prefix('/instructor')->as('instructor.')->middleware('guest:instructor')->group(function () {
-    Route::get('/register', [InstructorRegisterController::class, 'register'])->name('register');
+
     Route::post('/register', [InstructorRegisterController::class, 'storeRegister']);
 
     Route::get('/login', [InstructorLoginController::class, 'login'])->name('login');
