@@ -80,6 +80,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            {{ $orders->links() }}
         </div>
         <!-- /.container-fluid -->
     </section>
