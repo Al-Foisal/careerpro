@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller {
+    public function order() {
+        $orders = Order::orderBy('id', 'desc')->paginate(20);
+
+        return view('backend.order.order', compact('orders'));
+    }
+
     public function placeOrder(Request $request) {
         $carts = Cart::content();
 
@@ -35,9 +41,9 @@ class OrderController extends Controller {
             'coupon'         => $request->coupon,
             'paid_amount'    => $request->paid_amount,
 
-            'payment_type'   => $payment_type??'',
-            'payment_number' => $payment_number??'',
-            'trx_id'         => $trx_id??'',
+            'payment_type'   => $payment_type ?? '',
+            'payment_number' => $payment_number ?? '',
+            'trx_id'         => $trx_id ?? '',
 
             'name'           => $request->name,
             'phone'          => $request->phone,

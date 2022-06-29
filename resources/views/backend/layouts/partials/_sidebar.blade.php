@@ -160,7 +160,12 @@
                         </li>
                     </ul>
                 </li> 
-
+                <li class="nav-item">
+                    <a href="{{ route('admin.order') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Order</p>
+                    </a>
+                </li>
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link">

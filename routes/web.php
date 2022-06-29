@@ -322,7 +322,7 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
         Route::post('/inactive-walk-in-interview/{id}', 'inactiveWalkInInterview')->name('inactiveWalkInInterview');
         Route::delete('/delete/{id}', 'delete')->name('delete');
     });
-
+    Route::get('/order', [OrderController::class, 'order'])->name('order');
     Route::resource('/blogs', BlogController::class);
     Route::resource('/faqs', FAQController::class);
     Route::resource('/helps', HelpController::class);
