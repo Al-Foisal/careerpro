@@ -32,7 +32,7 @@
                                 <div class="card-body">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="exampleInputFile">Image</label>
+                                            <label for="exampleInputFile">Image(1920x1080)</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="form-control" name="image"

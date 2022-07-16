@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\MemberShipPackageController;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -306,6 +307,7 @@ Route::prefix('/admin')->as('admin.')->middleware('auth:admin')->group(function 
     Route::resource('/services', ServiceController::class);
     Route::resource('/memberships', MemberShipPackageController::class);
     Route::resource('/books', BookController::class);
+    Route::resource('/testimonials', TestimonialController::class);
 
     Route::controller(JobController::class)->prefix('/job')->as('job.')->group(function () {
         Route::get('/', 'index')->name('index');

@@ -230,6 +230,12 @@
                                 <p>Course Schedule</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.testimonials.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p class="text">Testimonials</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 

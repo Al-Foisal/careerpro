@@ -19,6 +19,7 @@ use App\Models\Page;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Subcategory;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -31,6 +32,7 @@ class FrontendController extends Controller {
             ->where('categories.status', 1)
             ->where('categories.on_front_page', 1)
             ->get();
+        $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get();
 
         return view('frontend.index', $data);
     }
